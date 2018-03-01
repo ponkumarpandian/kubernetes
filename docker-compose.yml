@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  customersvc:
+    image: customersvc
+    build:
+      context: .
+      dockerfile: CustomerSVC/Dockerfile
+
+  ordersvc:
+    image: ordersvc
+    build:
+      context: .
+      dockerfile: OrderSVC/Dockerfile
+
+
+  paymentsvc:
+    image: paymentsvc
+    build:
+      context: .
+      dockerfile: PaymentSVC/Dockerfile
+
