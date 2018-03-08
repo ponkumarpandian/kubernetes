@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerSVC", "CustomerSVC\CustomerSVC.csproj", "{1380422F-5EB8-4550-B6D0-D32A256B8693}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerSVC", "CustomerSVC\CustomerSVC.csproj", "{1380422F-5EB8-4550-B6D0-D32A256B8693}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{3F0BC9D0-5CB7-4CED-9D19-91673C8F82E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderSVC", "OrderSVC\OrderSVC.csproj", "{8E217F1D-4263-4B31-B07D-58F61A98F33B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderSVC", "OrderSVC\OrderSVC.csproj", "{8E217F1D-4263-4B31-B07D-58F61A98F33B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentSVC", "PaymentSVC\PaymentSVC.csproj", "{E8D03D84-F731-4504-B486-70F498D2CEA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentSVC", "PaymentSVC\PaymentSVC.csproj", "{E8D03D84-F731-4504-B486-70F498D2CEA4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{2D3E224D-DBC9-44F3-9AC1-58B7526C5BF4}"
 EndProject
@@ -17,7 +17,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EventBus", "EventBus", "{8B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventBus", "EventBus\EventBus.csproj", "{F346F120-B755-438D-83D4-9F7DF0482C19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBusRabbitMQ", "EventBusRabbitMQ\EventBusRabbitMQ.csproj", "{25238922-6963-454E-B9CB-9CEC3DCA41DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventBusRabbitMQ", "EventBusRabbitMQ\EventBusRabbitMQ.csproj", "{25238922-6963-454E-B9CB-9CEC3DCA41DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonIntegrationModel", "..\CommonIntegrationModel\CommonIntegrationModel.csproj", "{5976B421-82A1-4381-87E3-2B1A5BB85E6A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{50C94D9B-3435-482C-9DBC-1DEBBA2809D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +53,10 @@ Global
 		{25238922-6963-454E-B9CB-9CEC3DCA41DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25238922-6963-454E-B9CB-9CEC3DCA41DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{25238922-6963-454E-B9CB-9CEC3DCA41DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5976B421-82A1-4381-87E3-2B1A5BB85E6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5976B421-82A1-4381-87E3-2B1A5BB85E6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5976B421-82A1-4381-87E3-2B1A5BB85E6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5976B421-82A1-4381-87E3-2B1A5BB85E6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +65,8 @@ Global
 		{8B0A413E-1C00-49AA-9F6B-A063D3266A32} = {2D3E224D-DBC9-44F3-9AC1-58B7526C5BF4}
 		{F346F120-B755-438D-83D4-9F7DF0482C19} = {8B0A413E-1C00-49AA-9F6B-A063D3266A32}
 		{25238922-6963-454E-B9CB-9CEC3DCA41DF} = {8B0A413E-1C00-49AA-9F6B-A063D3266A32}
+		{5976B421-82A1-4381-87E3-2B1A5BB85E6A} = {50C94D9B-3435-482C-9DBC-1DEBBA2809D8}
+		{50C94D9B-3435-482C-9DBC-1DEBBA2809D8} = {2D3E224D-DBC9-44F3-9AC1-58B7526C5BF4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E2DDB175-6047-46EA-B778-7E09D7B8A2B1}

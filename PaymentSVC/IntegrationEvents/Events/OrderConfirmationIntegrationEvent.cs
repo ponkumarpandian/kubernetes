@@ -1,5 +1,5 @@
-﻿using EventBus.Events;
-using PaymentSVC.Models;
+﻿using Common.IntegrationModel;
+using EventBus.Events;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +11,9 @@ namespace PaymentSVC.Events
     {
 
 
-        public order _orderinfo { get; set; }
+        public Order _orderinfo { get; set; }
 
-        public OrderConfirmationIntegrationEvent(order orderinfo )
+        public OrderConfirmationIntegrationEvent(Order orderinfo )
         {
             _orderinfo = orderinfo;
         }

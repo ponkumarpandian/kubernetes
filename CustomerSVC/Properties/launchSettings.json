@@ -10,13 +10,13 @@
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
-      "launchBrowser": true,
       "launchUrl": "api/values",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
     "CustomerSVC": {
+      "CustomerConnection": "Server=VRAKSHITH00141;Database=Customers;User id=vijayrakshith;Password=#Flex7788;Trusted_Connection=True;",
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "api/values",

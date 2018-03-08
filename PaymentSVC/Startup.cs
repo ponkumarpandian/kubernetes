@@ -8,12 +8,15 @@ using BuildingBlocks.EventBus;
 using BuildingBlocks.EventBusRabbitMQ;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using PaymentSVC.DAL;
 using PaymentSVC.Events;
 using PaymentSVC.IntegrationEvents.EventHandling;
+using PaymentSVC.IntegrationEvents.Events;
 using RabbitMQ.Client;
 
 namespace PaymentSVC
@@ -31,6 +34,19 @@ namespace PaymentSVC
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            IConfigurationRoot configuration = new ConfigurationBuilder()
+          .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+          .AddJsonFile("appsettings.json")
+          .Build();
+
+            var connectionString = configuration["ConnectionStrings:PaymentConnection"];
+
+            services
+                .AddEntityFrameworkSqlServer()
+                .AddDbContext<PaymentDBContext>(options => options.UseSqlServer(connectionString));
+
+
 
             services.AddSingleton<IRabbitMQPersistentConnection>(sp =>
             {
@@ -87,6 +103,7 @@ namespace PaymentSVC
 
             //services.AddTransient<ProductPriceChangedIntegrationEventHandler>();
             services.AddTransient<OrderConfirmationIntegrationEventHandler>();
+            services.AddTransient<NewOrderIntegrationEventHandler>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -102,6 +119,7 @@ namespace PaymentSVC
             var eventBus = app.ApplicationServices.GetRequiredService<IEventBus>();
 
             eventBus.Subscribe<OrderConfirmationIntegrationEvent, OrderConfirmationIntegrationEventHandler>();
+            eventBus.Subscribe<NewOrderIntegrationEvent, NewOrderIntegrationEventHandler>();
         }
     }
 }

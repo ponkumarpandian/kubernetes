@@ -8,11 +8,12 @@ using BuildingBlocks.EventBus;
 using BuildingBlocks.EventBusRabbitMQ;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-
+using OrderSVC.DAL;
 using RabbitMQ.Client;
 
 namespace OrderSVC
@@ -30,6 +31,20 @@ namespace OrderSVC
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+
+            IConfigurationRoot configuration = new ConfigurationBuilder()
+           .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+           .AddJsonFile("appsettings.json")
+           .Build();
+
+            var connectionString = configuration["ConnectionStrings:CustomerConnection"];
+
+            services
+                .AddEntityFrameworkSqlServer()
+                .AddDbContext<OrderDBContext>(options => options.UseSqlServer(connectionString));
+
+
 
 
             services.AddSingleton<IRabbitMQPersistentConnection>(sp =>
