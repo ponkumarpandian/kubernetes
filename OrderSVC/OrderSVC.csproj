@@ -43,7 +43,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\CommonIntegrationModel\CommonIntegrationModel.csproj" />
+    
+    <ProjectReference Include="..\CommonIntegrationModel\CommonIntegrationModel.csproj" />
     <ProjectReference Include="..\EventBusRabbitMQ\EventBusRabbitMQ.csproj" />
   </ItemGroup>
 
